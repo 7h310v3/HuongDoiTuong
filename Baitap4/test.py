@@ -1,3 +1,4 @@
+import pickle
 from ThongTin import Person, Student, Professor
 
 def NhapN(name):
@@ -45,6 +46,25 @@ def XuatGV(x, a):
         j = Professor(j, k, l, m)
         print(j.outputProfessor())
 
+def InVaoFileSV(x, a):
+    with  open("sinhvien.obj", "wb+") as f:
+        for i in range(x):
+            j, k, l, m, n = tuple(a[i])
+            j = Student(j, k, l, m, n)
+            pickle.dump(j.outputStudent(), f)
+
+def InVaoFileGV(x, a):
+    with  open("giangvien.obj", "wb+") as f:
+        for i in range(x):
+            j, k, l, m = tuple(a[i])
+            j = Professor(j, k, l, m)
+            pickle.dump(j.outputProfessor(), f)
+
+def DocFile(tenfile,x):
+    with  open(tenfile, "rb+") as sf:
+        for i in range(x):
+            j = pickle.load(sf)
+            print(j)
 
 def main():
     dssv = []
@@ -59,6 +79,14 @@ def main():
     #GV
     NhapGV(sgv, dsgv)
     XuatGV(sgv,dsgv)
+
+    #InFile
+    InVaoFileSV(ssv,dssv)
+    InVaoFileGV(sgv, dsgv)
+
+    #Docfile
+    DocFile("sinhvien.obj", ssv)
+    DocFile("giangvien.obj", sgv)
 
 if __name__== "__main__":
     main()
