@@ -28,10 +28,12 @@ def Nhap1GV():
 
 def NhapSV(x,a):
     for i in range(x):
+        print("Nhập thông tin sinh viên", i + 1)
         a.append(Nhap1SV())
 
 def NhapGV(x, a):
     for i in range(x):
+        print("Nhập thông tin giảng viên", i + 1)
         a.append(Nhap1GV())
 
 def XuatSV(x, a):
@@ -74,11 +76,11 @@ def main():
 
     #SV
     NhapSV(ssv, dssv)
-    XuatSV(ssv, dssv)
+    #XuatSV(ssv, dssv)
 
     #GV
     NhapGV(sgv, dsgv)
-    XuatGV(sgv,dsgv)
+    #XuatGV(sgv,dsgv)
 
     #InFile
     InVaoFileSV(ssv,dssv)
