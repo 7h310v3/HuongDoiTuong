@@ -48,6 +48,20 @@ def XuatGV(x, a):
         j = Professor(j, k, l, m)
         print(j.outputProfessor())
 
+def XuatPS(x, a):
+    for i in range(x):
+        print(a[i])
+        #j, k, l = tuple(a[i])
+        #j = Professor(j, k, l)
+        #print(j.outputPerson())
+
+def InVaoFilePS(x, a):
+    with  open("person.obj", "wb+") as f:
+        for i in range(x):
+            j, k, l = tuple(a[i])
+            j = Person(j, k, l)
+            pickle.dump(j.outputPerson(), f)
+
 def InVaoFileSV(x, a):
     with  open("sinhvien.obj", "wb+") as f:
         for i in range(x):
@@ -83,10 +97,12 @@ def main():
     #XuatGV(sgv,dsgv)
 
     #InFile
+    InVaoFilePS((ssv + sgv), dssv + dsgv)
     InVaoFileSV(ssv,dssv)
     InVaoFileGV(sgv, dsgv)
 
     #Docfile
+    DocFile("person.obj", ssv+sgv)
     DocFile("sinhvien.obj", ssv)
     DocFile("giangvien.obj", sgv)
 

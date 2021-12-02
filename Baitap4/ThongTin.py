@@ -15,7 +15,7 @@ class Person:
 
 class Student(Person):
     studentID : str
-    averagerank : str
+    averagerank : int
 
     def __init__(self, ten, mail, sdt, studentID, averagerank ) -> None:
         Person.__init__(self, ten, mail, sdt)
@@ -23,7 +23,7 @@ class Student(Person):
         self.averagerank = averagerank
 
     def outputStudent(self) -> str:
-        result = self.outputPerson() + "\tMSSV:" + self.studentID + "\tĐiểm trung bình:" + self.averagerank
+        result = self.outputPerson() + "\tMSSV:" + self.studentID + "\tĐiểm trung bình:" + str(self.averagerank)
         return result
 
 class Professor(Person):
