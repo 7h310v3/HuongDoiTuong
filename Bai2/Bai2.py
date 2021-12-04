@@ -10,5 +10,6 @@ def main():
     print(phuong.outputStudent())
     print(trung.outputStudent())
     print(thayCuong.outputLecturer())
+
 if __name__ == "__main__":
     main()

@@ -38,28 +38,28 @@ def NhapGV(x, a):
 
 def XuatSV(x, a):
     for i in range(x):
-        j, k, l, m, n = tuple(a[i])
+        j, k, l, m, n = a[i]
         t = Student(j, k, l, m, n)
         print(t.outputStudent())
 
 def XuatGV(x, a):
     for i in range(x):
-        j, k, l, m = tuple(a[i])
+        j, k, l, m = a[i]
         t = Professor(j, k, l, m)
         print(t.outputProfessor())
 
 def XuatPS(x, a):
     for i in range(x):
-        tuple(a[i])
-        j, k, l = a[i][1], a[i][2], a[i][3]
+        m = a[i]
+        j, k, l = m[1], m[2], m[3]
         t = Person(j, k, l)
         print(j.outputPerson())
 
 def InVaoFilePS(x, a):
     with  open("person.obj", "wb+") as f:
         for i in range(x):
-            tuple(a[i])
-            j, k, l = a[i][1], a[i][2], a[i][3]
+            m = a[i]
+            j, k, l = m[1], m[2], m[3]
             t = Person(j, k, l)
             pickle.dump(t.outputPerson(), f)
 
@@ -136,19 +136,19 @@ def main():
     #XuatPS(sps, dsps)
 
     #dsps = SapxepPS(dsps)
-    print(SapxepPS(dsps))
+    #print(SapxepPS(dsps))
     #dssv = SapxepSV(dssv)
     #dsgv = SapxepGV(dsgv)
 
     # InFile
-    #InVaoFilePS(sps, dsps)
-    #InVaoFileSV(ssv, dssv)
-    #InVaoFileGV(sgv, dsgv)
+    InVaoFilePS(sps, dsps)
+    InVaoFileSV(ssv, dssv)
+    InVaoFileGV(sgv, dsgv)
 
     # Docfile
-    #DocFile("person.obj", sps, "Người")
-    #DocFile("sinhvien.obj", ssv, "Sinh viên")
-    #DocFile("giangvien.obj", sgv, "Giảng viên")
+    DocFile("person.obj", sps, "Người")
+    DocFile("sinhvien.obj", ssv, "Sinh viên")
+    DocFile("giangvien.obj", sgv, "Giảng viên")
 
 if __name__ == "__main__":
     main()

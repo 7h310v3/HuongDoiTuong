@@ -28,6 +28,7 @@ class Student(Person):
 
 class Professor(Person):
     salary : int
+
     def __init__(self, ten, mail, sdt,luong) -> None:
         Person.__init__(self, ten, mail, sdt)
         self.salary = luong
