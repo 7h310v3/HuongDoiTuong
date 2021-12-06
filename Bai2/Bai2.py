@@ -1,15 +1,19 @@
 from Person import Person, Student, Lecturer
 
 def main():
-    minh = Student("Nhật Minh", "Nam", "09481297812","21E122", 1)
-    trung = Student("Quang Trung", "Nam", "0982983712","21E129", 2)
-    phuong = Student("Thu Phương", "Nữ", "0983098371", "21E1018233", 1)
-    thayCuong = Lecturer("Hoa Cương", "Nam", "0982983213","98219312",20)
+    per = []
+    count = 0
+    while(count < 2):
+        n = input("Nhap ten: ")
+        e = n + "@gmail.com"
+        sdt = input("Nhap sdt: ")
+        per.append(Person(n, e, sdt))
+        count += 1
 
-    print(minh.outputStudent())
-    print(phuong.outputStudent())
-    print(trung.outputStudent())
-    print(thayCuong.outputLecturer())
+    count = 0
+    while (count < 2):
+        print(per[count].outputPerson())
+        count += 1
 
 if __name__ == "__main__":
     main()

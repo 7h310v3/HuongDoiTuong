@@ -9,6 +9,13 @@ def NhapN(name):
         x = int(input("Nhập số lượng: "))
     return x
 
+def Nhap1PS():
+    name =  input("Nhập tên: ")
+    sdt = input("Nhập sđt: ")
+    mail = input("Nhập mail:")
+    x = Person(name, mail, sdt)
+    return x
+
 def Nhap1SV():
     name =  input("Nhập tên: ")
     sdt = input("Nhập sđt: ")
@@ -25,6 +32,13 @@ def Nhap1GV():
     luong = input("Nhập lương: ")
     x = Professor(name, sdt, mail, luong)
     return x
+
+def NhapPS(x):
+    result = []
+    for i in range(x): 
+        print("Nhập thông tin người thứ ", i + 1)
+        result.append(Nhap1PS())
+    return result 
 
 def NhapSV(x):
     result = [] #result = list
@@ -97,10 +111,16 @@ def DocFile(tenfile, x, name):
 
 #Hàm chính
 def main():
+    dsps = []
     dssv = []
     dsgv = []
+    sps = NhapN(" người:") 
     ssv = NhapN(" sinh viên: ")
     sgv = NhapN(" giảng viên: ")
+
+    #Người
+    dsps = NhapPS(sps)
+    #XuatPS(sps)
 
     #Sinh Viên
     dssv = NhapSV(ssv)
@@ -109,11 +129,6 @@ def main():
     #Giảng Viên
     dsgv = NhapGV(sgv)
     #XuatGV(dsgv)
-
-    #Người
-    sps = ssv + sgv
-    dsps = dssv + dsgv
-    #XuatPS(sps)
 
     #Sapxep
     dsps = SapxepPS(dsps)
@@ -127,11 +142,11 @@ def main():
 
     #Docfile
     print("Person:")
-    DocFile("person.obj", sps, "Người")
+    DocFile("person.txt", sps, "Người")
     print("Sinh viên:")
-    DocFile("sinhvien.obj", ssv, "Sinh viên")
+    DocFile("sinhvien.txt", ssv, "Sinh viên")
     print("Giảng viên:")
-    DocFile("giangvien.obj", sgv, "Giảng viên")
+    DocFile("giangvien.txt", sgv, "Giảng viên")
 
 if __name__ == "__main__":
     main()
