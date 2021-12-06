@@ -1,20 +1,3 @@
-class Customer:
-    name:str
-    address:str
-    orders:list[Order]
-
-    def __init__(self,name,address):
-        self.name=name
-        self.address=address
-        self.order=[]
-    def addOrder(self,donhang:Order):
-        self.order.append(donhang)
-    def addOrder(self)->list[Order]:
-        return self.order
-    def addCustomer(self)->str:
-        result="Khách hàng:" + self.name + "\tĐịa chỉ:" + self.address + "\tĐã mua:" + self.order
-        return result
-
 class Item:
     shippingWeight:float
     description:str
@@ -121,4 +104,21 @@ class Order:
     def addPayment(self) -> list[Payment]:
         return self.payment
     def addOrder(self) -> str:
+        return result
+
+class Customer:
+    name:str
+    address:str
+    orders:list[Order]
+
+    def __init__(self,name,address):
+        self.name=name
+        self.address=address
+        self.order=[]
+    def addOrder(self,donhang:Order):
+        self.order.append(donhang)
+    def addOrder(self)->list[Order]:
+        return self.order
+    def addCustomer(self)->str:
+        result="Khách hàng:" + self.name + "\tĐịa chỉ:" + self.address + "\tĐã mua:" + self.order
         return result
