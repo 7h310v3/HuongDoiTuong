@@ -69,37 +69,36 @@ def XuatPS(result):
 def SapxepPS(result):
     for i in range(len(result)):
         for j in range(i+1,len(result)):
-            if(result[i].name > result[j].name):
+            if(result[i].name < result[j].name):
                 result[i], result[j] = result[j], result[i]
     return result
 
 def SapxepSV(result):
     for i in range(len(result)):
         for j in range(i+1,len(result)): #[i+1, len)
-            if(result[i].averagerank > result[j].averagerank):
+            if(result[i].averagerank < result[j].averagerank):
                 result[i], result[j] = result[j], result[i]
     return result
 
 def SapxepGV(result):
     for i in range(len(result)):
         for j in range(i+1,len(result)): #[i+1, len)
-            if(result[i].salary < result[j].salary):
+            if(result[i].salary > result[j].salary):
                 result[i], result[j] = result[j], result[i]
     return result
 
 def InVaoFilePS(result):
-    with open("person.obj", "wb+") as f:
+    with open("person.txt", "wb+") as f:
         for i in result:
             pickle.dump(i.outputPerson(), f)
 
 def InVaoFileSV(result):
-    f = open("sinhvien.obj", "wb+")
-    for i in result: #Cho i chạy từ phần tử đầu tiên đến cuối cùng của danh sách sinh viên
-        pickle.dump(i.outputStudent(), f)
-    f.close()
+    with open("sinhvien.txt", "wb+") as f:
+        for i in result: #Cho i chạy từ phần tử đầu tiên đến cuối cùng của danh sách sinh viên
+            pickle.dump(i.outputStudent(), f)
 
 def InVaoFileGV(result):
-    with open("giangvien.obj", "wb+") as f:
+    with open("giangvien.txt", "wb+") as f:
         for i in result:
             pickle.dump(i.outputProfessor(), f)
 

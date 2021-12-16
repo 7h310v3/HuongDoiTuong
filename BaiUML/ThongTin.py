@@ -12,7 +12,7 @@ class Item:
     def instock(self):
         pass
     def addItem(self)->str:
-        result ="Vận chuyển:" + str(self.shippingWeight) + "\tMô tả:" + self.description
+        result = "Vận chuyển:" + str(self.shippingWeight) + "\tMô tả:" + self.description
         return result
 
 class OrderDetail:
@@ -38,7 +38,7 @@ class Payment:
     def __init__(self,amount):
         super().__init__()
         self.amount=amount
-    def addAmount(self)->str:
+    def addAmount(self) -> str:
         result = "Giá: " + str(self.amount)
         return result
 
@@ -48,7 +48,7 @@ class Cash(Payment):
     def __init__(self, ammount,cashTendered):
         Payment.__init__(self, ammount)
         self.cashTendered = cashTendered
-    def addCash(self)->str:
+    def addCash(self) -> str:
         result= self.addAmount() + "\tTrả: " + self.cashTendered
         return result
 
@@ -61,7 +61,7 @@ class Check(Payment):
         self.name = name
         self.bankID = bankID
 
-    def addcheck(self)->str:
+    def addcheck(self) -> str:
         result=self.addAmount() + "\tTên: " + self.name + "\tBank ID" + self.bankID
         return result
 
@@ -112,13 +112,13 @@ class Customer:
     orders:list[Order]
 
     def __init__(self,name,address):
-        self.name=name
-        self.address=address
-        self.order=[]
-    def addOrder(self,donhang:Order):
+        self.name = name
+        self.address = address
+        self.order = []
+    def addOrder(self, donhang:Order):
         self.order.append(donhang)
-    def addOrder(self)->list[Order]:
+    def addOrder(self) -> list[Order]:
         return self.order
-    def addCustomer(self)->str:
-        result="Khách hàng:" + self.name + "\tĐịa chỉ:" + self.address + "\tĐã mua:" + self.order
+    def addCustomer(self) -> str:
+        result = "Khách hàng:" + self.name + "\tĐịa chỉ:" + self.address + "\tĐã mua:" + self.order
         return result
